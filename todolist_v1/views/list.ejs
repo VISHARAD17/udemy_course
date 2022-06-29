@@ -3,25 +3,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
     <title>To Do List</title>
 </head>
 <body>
-    <h1><%= kindOfDay %></h1>
-
-    <ul>
-        <li>Buy food</li>
-        <li>Cook food</li>
-        <li>Eat Food</li>
-        <li><%= newListItem %></li>
+    <div class="box" id = "heading">
+        <h1><%= listTitle %></h1>
+    </div>
+   
+    <div class="box">
         <% for(var i=0; i<newListItem.length; i++){ %>
-            <li> <%= newListItem[i] %> </li>
+            <div class="item">
+                <input type="checkbox">
+                <p><%= newListItem[i] %></p>
+            </div>
         <% } %>
+        <form class = "item" action="/" method="POST">
+            <input type="text" name = "newItem" placeholder="new item" autocomplete="off">
+            <button type="submit" name="button">+</button>
+        </form>
+    </div>
 
-    </ul>
-
-    <form class = "" action="/" method="POST">
-        <input type="text" name = "newItem">
-        <button type="submit" name="button">Add</button>
-    </form>
+    
 </body>
 </html>
