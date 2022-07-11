@@ -134,7 +134,9 @@ app.get("/about", function(req, res){
 // app.get("/custom/:customListName", function(req,res){
 app.get("/:customListName", function(req,res){
     const customListName = _.capitalize(req.params.customListName);
-    if (customListName == "Favicon.ico") return; // main updates
+    
+    if (customListName == "Favicon.ico") return; // main update
+
     console.log(customListName);
     List.findOne({name:customListName}, function(err, foundList){
         if(!err){
